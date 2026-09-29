@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chirag Calsy - CAS</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.js"></script>
+</head>
+<body style="background:#111;color:#fff;text-align:center;">
+  <h1>Chirag Calsy (CAS Mode)</h1>
+  <input id="input" style="width:300px;height:40px;font-size:18px;">
+  <button onclick="calculate()">=</button>
+  <p id="output"></p>
+
+  <script>
+    function calculate(){
+      let expr = document.getElementById('input').value;
+      try{
+        let simplified = math.simplify(expr);
+        document.getElementById('output').innerText = simplified.toString();
+      }catch(e){
+        document.getElementById('output').innerText = "Error";
+      }
+    }
+  </script>
+</body>
+</html>

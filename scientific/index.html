@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chirag Calsy - Scientific</title>
+</head>
+<body>
+  <h1>Chirag Calsy (Scientific)</h1>
+  <input id="display" disabled>
+  <button onclick="append('sin(')">sin</button>
+  <button onclick="append('cos(')">cos</button>
+  <button onclick="append('tan(')">tan</button>
+  <button onclick="append('log(')">log</button>
+  <button onclick="append('sqrt(')">√</button>
+  <button onclick="append('^')">x^y</button>
+  <button onclick="append('!')">n!</button>
+  <button onclick="calculate()">=</button>
+
+  <script>
+    let display = document.getElementById('display');
+    function append(val){ display.value += val; }
+    function factorial(n){ return n<=1?1:n*factorial(n-1); }
+    function calculate(){
+      let expr = display.value;
+      expr = expr.replace(/(\d+)!/g, (_,x)=>factorial(parseInt(x)));
+      expr = expr.replace(/(\d+)\^(\d+)/g, (_,a,b)=>Math.pow(a,b));
+      try{ display.value = eval(expr); }catch{ display.value="Error"; }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chirag Calsy - Basic</title>
+</head>
+<body>
+  <h1>Chirag Calsy (Basic)</h1>
+  <input id="display" disabled>
+  <button onclick="clearDisplay()">C</button>
+  <button onclick="append('+')">+</button>
+  <button onclick="append('-')">-</button>
+  <button onclick="append('*')">×</button>
+  <button onclick="append('/')">÷</button>
+  <button onclick="calculate()">=</button>
+
+  <script>
+    let display = document.getElementById('display');
+    function append(val){ display.value += val; }
+    function clearDisplay(){ display.value = ''; }
+    function calculate(){ display.value = eval(display.value); }
+  </script>
+</body>
+</html>
